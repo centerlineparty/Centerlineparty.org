@@ -1,258 +1,676 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Centerline Party - Resident Voice in Local Spending</title>
+  <meta
+    name="description"
+    content="Centerline Party is a local proposal that gives residents a direct voice in how a small portion of local tax revenue is allocated while preserving stability in the existing budget process."
+  />
+  <meta name="theme-color" content="#000000"/>
+  <meta property="og:title" content="Centerline Party - Resident Voice in Local Spending"/>
+  <meta
+    property="og:description"
+    content="A measured local approach to giving residents a direct voice in public spending without disrupting essential government functions."
+  />
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="logo.png"/>
+  <meta property="og:site_name" content="Centerline Party"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Centerline Party - Resident Voice in Local Spending"/>
+  <meta
+    name="twitter:description"
+    content="A measured local approach to giving residents a direct voice in public spending without disrupting essential government functions."
+  />
+  <meta name="twitter:image" content="logo.png"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Centerline Party - Direct Taxpayer Control</title>
-        <link rel="icon" type="image/png" href="favicon.png">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#000000",
-                        "background-light": "#f7f7f7",
-                        "background-dark": "#191919",
-                        "muted-gray": "#737373",
-                        "border-gray": "#e5e5e5"
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet"
+  />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#000000",
+            "background-light": "#f7f7f7",
+            "background-dark": "#191919",
+            "muted-gray": "#737373",
+            "border-gray": "#e5e5e5"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          boxShadow: {
+            "soft": "0 8px 30px rgba(0,0,0,0.06)"
+          }
         }
-    </script>
-<style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
-<style>
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
+      font-family: 'Inter', sans-serif;
       min-height: max(884px, 100dvh);
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease;
+    }
+
+    .faq-item.open .faq-content {
+      max-height: 320px;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-icon {
+      transition: transform 0.28s ease;
+    }
+
+    .mobile-menu-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease;
+    }
+
+    .mobile-menu-panel.open {
+      max-height: 320px;
+    }
+
+    .nav-link.active {
+      color: #000000;
+    }
+
+    .dark .nav-link.active {
+      color: #ffffff;
+    }
+
+    .focus-ring:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
     }
   </style>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark text-primary dark:text-white font-display">
-<!-- Header / Desktop Nav -->
-<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-border-gray dark:border-white/10">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<img class="w-10 h-10 rounded-lg" data-alt="Centerline Party geometric minimalist logo" src="logo.png"/>
-<span class="text-xl font-bold tracking-tight">Centerline Party</span>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-sm font-medium hover:text-muted-gray transition-colors" href="#">Home</a>
-<a class="text-sm font-medium hover:text-muted-gray transition-colors" href="#proposal">Proposal</a>
-<a class="text-sm font-medium hover:text-muted-gray transition-colors" href="#faq">FAQ</a>
-<a class="text-sm font-medium hover:text-muted-gray transition-colors" href="#about">About</a>
-<a class="text-sm font-medium hover:text-muted-gray transition-colors" href="#contact">Contact</a>
-</nav>
-<div class="md:hidden">
-<button class="p-2">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</div>
-</header>
-<main class="max-w-7xl mx-auto pb-24">
-<!-- Hero Section -->
-<section class="px-4 py-16 md:py-24 lg:py-32">
-<div class="grid lg:grid-cols-2 gap-12 items-center">
-<div class="flex flex-col gap-8">
-<h1 class="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
-                        Giving taxpayers direct control over 3% of their paid taxes
-                    </h1>
-<p class="text-xl md:text-2xl text-muted-gray leading-relaxed max-w-xl">
-                        While leaving the remaining 97% exactly as government operates today.
-                    </p>
-<div class="flex flex-wrap gap-4">
-<a class="bg-primary text-white dark:bg-white dark:text-primary px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity" href="#proposal">
-                            Read the Proposal
-                        </a>
-<a class="border border-border-gray dark:border-white/20 px-8 py-4 rounded-lg font-bold text-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors" href="#faq">
-                            How it works
-                        </a>
-</div>
-</div>
-<div class="relative aspect-square bg-white dark:bg-neutral-800 rounded-2xl border border-border-gray dark:border-white/10 p-8 flex flex-col justify-center items-center shadow-sm">
-<!-- Stability Ratio Graphic -->
-<div class="w-full max-w-md space-y-8">
-<div class="relative h-12 w-full bg-neutral-200 dark:bg-neutral-700 rounded-full overflow-hidden flex">
-<div class="h-full bg-primary dark:bg-white" style="width: 3%;"></div>
-<div class="h-full bg-transparent" style="width: 97%;"></div>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="p-6 rounded-xl border border-border-gray dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50">
-<span class="block text-4xl font-black mb-1">3%</span>
-<span class="text-sm text-muted-gray uppercase tracking-widest font-bold">Allocated by You</span>
-</div>
-<div class="p-6 rounded-xl border border-border-gray dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50">
-<span class="block text-4xl font-black mb-1">97%</span>
-<span class="text-sm text-muted-gray uppercase tracking-widest font-bold">Status Quo</span>
-</div>
-</div>
-<p class="text-center text-sm text-muted-gray italic">Visualizing the balance of direct control and systemic stability.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- The Proposal -->
-<section class="px-4 py-20 border-t border-border-gray dark:border-white/10" id="proposal">
-<div class="max-w-3xl mx-auto text-center mb-16">
-<h2 class="text-3xl font-bold mb-4">The Centerline Proposal</h2>
-<p class="text-lg text-muted-gray">A measured, incremental approach to modernizing our fiscal representation without disrupting essential government functions.</p>
-</div>
-<div class="grid md:grid-cols-2 gap-8">
-<div class="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10">
-<h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary dark:text-white">account_balance_wallet</span>
-                        Taxpayer Control
-                    </h3>
-<p class="text-muted-gray leading-relaxed mb-6">
-                        Under this plan, every individual taxpayer is granted the authority to allocate exactly 3% of their total tax liability to specific, pre-vetted government departments or initiatives. This ensures your priorities are directly reflected in the national budget.
-                    </p>
-<div class="text-4xl font-black text-primary dark:text-white">+3% Control</div>
-</div>
-<div class="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10">
-<h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary dark:text-white">verified</span>
-                        Stability Guarantee
-                    </h3>
-<p class="text-muted-gray leading-relaxed mb-6">
-                        To maintain fiscal stability and ensure that long-term infrastructure and essential services remain funded, 97% of all tax revenue remains under the full control of our elected representatives and the established legislative process.
-                    </p>
-<div class="text-4xl font-black text-muted-gray">97% Unchanged</div>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section class="px-4 py-20 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl mx-4" id="faq">
-<div class="max-w-3xl mx-auto">
-<h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-<div class="space-y-4">
-<!-- FAQ Item 1 -->
-<div class="bg-white dark:bg-background-dark border border-border-gray dark:border-white/10 rounded-xl overflow-hidden">
-<button class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">
-<span class="font-bold text-lg">Does this replace representative government?</span>
-<span class="material-symbols-outlined text-muted-gray">expand_more</span>
-</button>
-<div class="px-6 pb-5">
-<p class="text-muted-gray">No. The Centerline Party's proposal is designed to augment, not replace, our existing system. By keeping 97% of the budget under the control of elected officials, we ensure that the professional expertise and long-term planning of our representatives remain the bedrock of our governance.</p>
-</div>
-</div>
-<!-- FAQ Item 2 -->
-<div class="bg-white dark:bg-background-dark border border-border-gray dark:border-white/10 rounded-xl overflow-hidden">
-<button class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">
-<span class="font-bold text-lg">Why exactly 3%?</span>
-<span class="material-symbols-outlined text-muted-gray">expand_more</span>
-</button>
-<div class="px-6 pb-5">
-<p class="text-muted-gray">3% represents a meaningful amount that gives every citizen a voice while being low enough to prevent systemic shocks. It is an incremental reform aimed at testing the waters of direct fiscal democracy before considering any larger shifts.</p>
-</div>
-</div>
-<!-- FAQ Item 3 -->
-<div class="bg-white dark:bg-background-dark border border-border-gray dark:border-white/10 rounded-xl overflow-hidden">
-<button class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">
-<span class="font-bold text-lg">How will taxpayers make their selections?</span>
-<span class="material-symbols-outlined text-muted-gray">expand_more</span>
-</button>
-<div class="px-6 pb-5">
-<p class="text-muted-gray">Selection would occur during the annual tax filing process through a simple, secure digital interface. Taxpayers would see a list of major departments and initiatives and could distribute their 3% among them as they see fit.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Contact Section -->
-<section class="px-4 py-20" id="contact">
-<div class="max-w-5xl mx-auto bg-primary text-white dark:bg-white dark:text-primary p-12 rounded-3xl grid md:grid-cols-2 gap-12 items-center">
-<div>
-<h2 class="text-4xl font-black mb-6">Join the Movement</h2>
-<p class="text-white/80 dark:text-primary/80 text-lg mb-8">
-                        We are building a more responsive democracy. Reach out to learn more about how you can support the Centerline Party in your community.
-                    </p>
-<div class="space-y-4">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined">person</span>
-<span class="font-medium">Thomas Dooley</span>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined">mail</span>
-<span class="font-medium">centerllineparty@gmail.com</span>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined">location_on</span>
-<span class="font-medium" data-location="South Windsor, CT">South Windsor, CT</span>
-</div>
-</div>
-</div>
-<div class="bg-white/10 dark:bg-primary/5 p-8 rounded-2xl backdrop-blur-sm border border-white/20 dark:border-primary/10">
-<form class="space-y-4" onsubmit="event.preventDefault()">
-<div>
-<label class="block text-sm font-bold mb-2 uppercase tracking-wider">Your Name</label>
-<input class="w-full bg-white/10 dark:bg-primary/5 border border-white/20 dark:border-primary/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-primary" type="text"/>
-</div>
-<div>
-<label class="block text-sm font-bold mb-2 uppercase tracking-wider">Message</label>
-<textarea class="w-full bg-white/10 dark:bg-primary/5 border border-white/20 dark:border-primary/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-primary" rows="4"></textarea>
-</div>
-<button class="w-full bg-white text-primary dark:bg-primary dark:text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity">
-                            Send Message
-                        </button>
+  <!-- Header / Desktop Nav -->
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-border-gray dark:border-white/10">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img
+          class="w-10 h-10 rounded-lg"
+          alt="Centerline Party logo"
+          src="logo.png"
+        />
+        <span class="text-xl font-bold tracking-tight">Centerline Party</span>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+        <a class="nav-link text-sm font-medium hover:text-muted-gray transition-colors focus-ring" href="#home">Home</a>
+        <a class="nav-link text-sm font-medium hover:text-muted-gray transition-colors focus-ring" href="#proposal">Proposal</a>
+        <a class="nav-link text-sm font-medium hover:text-muted-gray transition-colors focus-ring" href="#example">Example</a>
+        <a class="nav-link text-sm font-medium hover:text-muted-gray transition-colors focus-ring" href="#faq">FAQ</a>
+        <a class="nav-link text-sm font-medium hover:text-muted-gray transition-colors focus-ring" href="#about">About</a>
+        <a class="nav-link text-sm font-medium hover:text-muted-gray transition-colors focus-ring" href="#contact">Contact</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button
+          id="mobile-menu-button"
+          class="p-2 focus-ring rounded-lg"
+          aria-label="Open mobile menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu-panel"
+          type="button"
+        >
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu-panel" class="mobile-menu-panel md:hidden border-t border-border-gray dark:border-white/10 bg-white/95 dark:bg-background-dark/95">
+      <nav class="px-4 py-4 flex flex-col gap-1" aria-label="Mobile navigation">
+        <a class="nav-link px-3 py-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-ring" href="#home">Home</a>
+        <a class="nav-link px-3 py-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-ring" href="#proposal">Proposal</a>
+        <a class="nav-link px-3 py-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-ring" href="#example">Example</a>
+        <a class="nav-link px-3 py-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-ring" href="#faq">FAQ</a>
+        <a class="nav-link px-3 py-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-ring" href="#about">About</a>
+        <a class="nav-link px-3 py-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-ring" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto pb-24">
+    <!-- Hero Section -->
+    <section id="home" class="px-4 py-16 md:py-24 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="flex flex-col gap-8">
+          <h1 class="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
+            Giving residents a direct voice in how a portion of local tax revenue is spent
+          </h1>
+
+          <p class="text-xl md:text-2xl text-muted-gray leading-relaxed max-w-xl">
+            A simple local model where 3% is guided by residents while the remaining 97% continues through the normal government process.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a
+              class="bg-primary text-white dark:bg-white dark:text-primary px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity focus-ring"
+              href="#proposal"
+            >
+              Read the Proposal
+            </a>
+            <a
+              class="border border-border-gray dark:border-white/20 px-8 py-4 rounded-lg font-bold text-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-ring"
+              href="#faq"
+            >
+              How it works
+            </a>
+          </div>
+        </div>
+
+        <div class="relative aspect-square bg-white dark:bg-neutral-800 rounded-2xl border border-border-gray dark:border-white/10 p-8 flex flex-col justify-center items-center shadow-soft">
+          <div class="w-full max-w-md space-y-8">
+            <div class="relative h-12 w-full bg-neutral-200 dark:bg-neutral-700 rounded-full overflow-hidden flex" aria-label="3 percent resident guided, 97 percent unchanged">
+              <div class="h-full bg-primary dark:bg-white" style="width: 3%;"></div>
+              <div class="h-full bg-transparent" style="width: 97%;"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-6 rounded-xl border border-border-gray dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50">
+                <span class="block text-4xl font-black mb-1">3%</span>
+                <span class="text-sm text-muted-gray uppercase tracking-widest font-bold">Resident-Guided</span>
+              </div>
+              <div class="p-6 rounded-xl border border-border-gray dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50">
+                <span class="block text-4xl font-black mb-1">97%</span>
+                <span class="text-sm text-muted-gray uppercase tracking-widest font-bold">Status Quo</span>
+              </div>
+            </div>
+
+            <p class="text-center text-sm text-muted-gray italic">
+              A measured balance between public input and institutional stability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proposal -->
+    <section class="px-4 py-20 border-t border-border-gray dark:border-white/10" id="proposal">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">The Centerline Proposal</h2>
+        <p class="text-lg text-muted-gray">
+          A measured, local approach to giving residents a real voice in public spending without disrupting essential government functions.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10 shadow-soft">
+          <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary dark:text-white">account_balance_wallet</span>
+            Resident Allocation
+          </h3>
+          <p class="text-muted-gray leading-relaxed mb-6">
+            Under this plan, a fixed 3% of total local property tax revenue is set aside into a shared allocation pool. Each adult resident can then help decide how that portion is distributed across approved local priorities such as schools, parks, recreation, infrastructure, and community programs.
+          </p>
+          <div class="text-4xl font-black text-primary dark:text-white">3% Guided by Residents</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10 shadow-soft">
+          <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary dark:text-white">verified</span>
+            Stability Guarantee
+          </h3>
+          <p class="text-muted-gray leading-relaxed mb-6">
+            To preserve stability and protect essential services, 97% of local tax revenue remains under the control of elected officials and the normal budget process. This proposal adds resident input to a small portion of spending without replacing representative government.
+          </p>
+          <div class="text-4xl font-black text-muted-gray">97% Unchanged</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example -->
+    <section class="px-4 py-20 border-t border-border-gray dark:border-white/10" id="example">
+      <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
+        <div class="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10 shadow-soft">
+          <h2 class="text-3xl font-bold mb-4">A Simple Example</h2>
+          <p class="text-muted-gray leading-relaxed mb-6">
+            If 60% of participating residents choose parks and recreation while 40% choose schools, then the 3% allocation pool is split along those same lines.
+          </p>
+          <p class="text-muted-gray leading-relaxed">
+            The tax rate does not change. The total budget does not disappear. A small portion of existing revenue is simply directed according to resident priorities.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10 shadow-soft">
+          <h3 class="text-xl font-bold mb-6">What this means in practice</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined mt-1">check_circle</span>
+              <p class="text-muted-gray">Residents express priorities clearly instead of only reacting after the fact.</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined mt-1">check_circle</span>
+              <p class="text-muted-gray">Officials keep the overall system intact while gaining better direction from the community.</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined mt-1">check_circle</span>
+              <p class="text-muted-gray">The process stays small enough to be stable, but real enough to matter.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="px-4 py-20 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl mx-4" id="faq">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+
+        <div class="space-y-4">
+          <div class="faq-item bg-white dark:bg-background-dark border border-border-gray dark:border-white/10 rounded-xl overflow-hidden">
+            <button
+              class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors focus-ring"
+              aria-expanded="false"
+              type="button"
+            >
+              <span class="font-bold text-lg">Does this replace representative government?</span>
+              <span class="faq-icon material-symbols-outlined text-muted-gray">expand_more</span>
+            </button>
+            <div class="faq-content">
+              <div class="px-6 pb-5">
+                <p class="text-muted-gray">
+                  No. The Centerline proposal is meant to supplement, not replace, the existing system. By keeping 97% of the budget under the control of elected officials, the town keeps its normal structure while residents gain a direct voice in a small, controlled portion of spending.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white dark:bg-background-dark border border-border-gray dark:border-white/10 rounded-xl overflow-hidden">
+            <button
+              class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors focus-ring"
+              aria-expanded="false"
+              type="button"
+            >
+              <span class="font-bold text-lg">Why exactly 3%?</span>
+              <span class="faq-icon material-symbols-outlined text-muted-gray">expand_more</span>
+            </button>
+            <div class="faq-content">
+              <div class="px-6 pb-5">
+                <p class="text-muted-gray">
+                  3% is intentionally small. It is large enough to create meaningful public input, but limited enough to avoid disrupting essential services, long-term planning, or the normal operating budget. It is a practical starting point, not a shock to the system.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white dark:bg-background-dark border border-border-gray dark:border-white/10 rounded-xl overflow-hidden">
+            <button
+              class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors focus-ring"
+              aria-expanded="false"
+              type="button"
+            >
+              <span class="font-bold text-lg">How will residents make their selections?</span>
+              <span class="faq-icon material-symbols-outlined text-muted-gray">expand_more</span>
+            </button>
+            <div class="faq-content">
+              <div class="px-6 pb-5">
+                <p class="text-muted-gray">
+                  The strongest version of this model is a once-per-year allocation vote held during local elections. Each adult resident would have the option to complete a simple additional form or digital selection process showing how they want the 3% pool distributed among approved local categories.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white dark:bg-background-dark border border-border-gray dark:border-white/10 rounded-xl overflow-hidden">
+            <button
+              class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors focus-ring"
+              aria-expanded="false"
+              type="button"
+            >
+              <span class="font-bold text-lg">Who gets to participate?</span>
+              <span class="faq-icon material-symbols-outlined text-muted-gray">expand_more</span>
+            </button>
+            <div class="faq-content">
+              <div class="px-6 pb-5">
+                <p class="text-muted-gray">
+                  Every adult resident with a primary address in the town should be eligible to participate. This includes both homeowners and renters. The proposal is based on residency and shared stake in the community, not on wealth, property ownership, or corporate influence.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white dark:bg-background-dark border border-border-gray dark:border-white/10 rounded-xl overflow-hidden">
+            <button
+              class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors focus-ring"
+              aria-expanded="false"
+              type="button"
+            >
+              <span class="font-bold text-lg">Does this change how much people pay in taxes?</span>
+              <span class="faq-icon material-symbols-outlined text-muted-gray">expand_more</span>
+            </button>
+            <div class="faq-content">
+              <div class="px-6 pb-5">
+                <p class="text-muted-gray">
+                  No. This proposal does not change anyone’s tax rate or create a new tax. It only changes how a small portion of existing local tax revenue is allocated.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="px-4 py-20 border-t border-border-gray dark:border-white/10" id="about">
+      <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8">
+        <div class="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10 shadow-soft">
+          <h2 class="text-3xl font-bold mb-4">About Centerline</h2>
+          <p class="text-muted-gray leading-relaxed mb-4">
+            Centerline is built around a simple idea: people should have a more direct voice in local priorities without tearing apart the institutions that keep a town functioning.
+          </p>
+          <p class="text-muted-gray leading-relaxed">
+            Instead of trying to replace representative government, Centerline starts small, stays local, and gives residents a structured way to help guide a limited portion of public spending.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10 shadow-soft">
+          <h3 class="text-xl font-bold mb-6">Local First</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined mt-1">location_city</span>
+              <p class="text-muted-gray">The model works best locally first, where people can see the effects directly and towns can test practical implementation.</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined mt-1">balance</span>
+              <p class="text-muted-gray">The goal is not disruption for its own sake. The goal is balance between public input and institutional stability.</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined mt-1">groups</span>
+              <p class="text-muted-gray">Residents already live with the outcomes of public spending. Centerline is about making that relationship more direct and more visible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What It Does Not Do -->
+    <section class="px-4 py-20 border-t border-border-gray dark:border-white/10">
+      <div class="max-w-5xl mx-auto p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-border-gray dark:border-white/10 shadow-soft">
+        <h2 class="text-3xl font-bold mb-8 text-center">What This Does Not Do</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-xl border border-border-gray dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50">
+            <h3 class="font-bold mb-3">It does not raise taxes</h3>
+            <p class="text-muted-gray text-sm leading-relaxed">
+              It works within existing local revenue rather than creating a new tax burden.
+            </p>
+          </div>
+          <div class="p-6 rounded-xl border border-border-gray dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50">
+            <h3 class="font-bold mb-3">It does not replace local government</h3>
+            <p class="text-muted-gray text-sm leading-relaxed">
+              Elected officials still oversee the vast majority of the budget and normal town operations.
+            </p>
+          </div>
+          <div class="p-6 rounded-xl border border-border-gray dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50">
+            <h3 class="font-bold mb-3">It does not give corporations extra influence</h3>
+            <p class="text-muted-gray text-sm leading-relaxed">
+              The strongest version is based on adult residents, not on property portfolios or corporate ownership.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="px-4 py-20" id="contact">
+      <div class="max-w-5xl mx-auto bg-primary text-white dark:bg-white dark:text-primary p-12 rounded-3xl grid md:grid-cols-2 gap-12 items-center shadow-soft">
+        <div>
+          <h2 class="text-4xl font-black mb-6">Join the Movement</h2>
+          <p class="text-white/80 dark:text-primary/80 text-lg mb-8">
+            We are building a more responsive form of local democracy. Reach out to learn more about how you can support the Centerline Party in your community.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined">person</span>
+              <span class="font-medium">Thomas Dooley</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined">mail</span>
+              <span class="font-medium">centerllineparty@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined">location_on</span>
+              <span class="font-medium">South Windsor, CT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white/10 dark:bg-primary/5 p-8 rounded-2xl backdrop-blur-sm border border-white/20 dark:border-primary/10">
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label class="block text-sm font-bold mb-2 uppercase tracking-wider" for="contact-name">Your Name</label>
+              <input
+                id="contact-name"
+                class="w-full bg-white/10 dark:bg-primary/5 border border-white/20 dark:border-primary/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-primary"
+                type="text"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2 uppercase tracking-wider" for="contact-message">Message</label>
+              <textarea
+                id="contact-message"
+                class="w-full bg-white/10 dark:bg-primary/5 border border-white/20 dark:border-primary/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-primary"
+                rows="4"
+                placeholder="Your message"
+              ></textarea>
+            </div>
+            <button
+              class="w-full bg-white text-primary dark:bg-primary dark:text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity focus-ring"
+              type="submit"
+            >
+              Send Message
+            </button>
+            <form
+  action="https://formsubmit.co/centerllineparty@gmail.com"
+  method="POST"
+  class="space-y-4"
+>
+  <!-- Hidden settings -->
+  <input type="hidden" name="_subject" value="New Centerline Contact Submission">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+
+  <div>
+    <label class="block text-sm font-bold mb-2 uppercase tracking-wider">Your Name</label>
+    <input
+      name="name"
+      required
+      class="w-full bg-white/10 dark:bg-primary/5 border border-white/20 dark:border-primary/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-primary"
+      type="text"
+      placeholder="Your name"
+    />
+  </div>
+
+  <div>
+    <label class="block text-sm font-bold mb-2 uppercase tracking-wider">Message</label>
+    <textarea
+      name="message"
+      required
+      class="w-full bg-white/10 dark:bg-primary/5 border border-white/20 dark:border-primary/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-primary"
+      rows="4"
+      placeholder="Your message"
+    ></textarea>
+  </div>
+
+  <button
+    class="w-full bg-white text-primary dark:bg-primary dark:text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity"
+    type="submit"
+  >
+    Send Message
+  </button>
 </form>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-white dark:bg-background-dark border-t border-border-gray dark:border-white/10 py-12 px-4">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="flex items-center gap-3">
-<img class="w-8 h-8 rounded-lg grayscale" data-alt="Centerline Party minimalist footer icon" src="logo.png"/>
-<span class="font-bold">Centerline Party</span>
-</div>
-<p class="text-muted-gray text-sm">© 2024 Centerline Party. All rights reserved.</p>
-<div class="flex gap-6">
-<a class="text-muted-gray hover:text-primary dark:hover:text-white transition-colors" href="#">Privacy</a>
-<a class="text-muted-gray hover:text-primary dark:hover:text-white transition-colors" href="#">Terms</a>
-</div>
-</div>
-</footer>
-<!-- Mobile Bottom Nav -->
-<div class="fixed bottom-0 left-0 right-0 md:hidden bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-border-gray dark:border-white/10 z-50">
-<div class="flex items-center justify-around py-2 px-4">
-<a class="flex flex-col items-center gap-1 p-2 text-primary dark:text-white" href="#">
-<span class="material-symbols-outlined">home</span>
-<span class="text-[10px] font-bold uppercase tracking-widest">Home</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 text-muted-gray" href="#proposal">
-<span class="material-symbols-outlined">description</span>
-<span class="text-[10px] font-bold uppercase tracking-widest">Plan</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 text-muted-gray" href="#faq">
-<span class="material-symbols-outlined">help</span>
-<span class="text-[10px] font-bold uppercase tracking-widest">FAQ</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 text-muted-gray" href="#contact">
-<span class="material-symbols-outlined">mail</span>
-<span class="text-[10px] font-bold uppercase tracking-widest">Mail</span>
-</a>
-</div>
-</div>
-</body></html>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-background-dark border-t border-border-gray dark:border-white/10 py-12 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex items-center gap-3">
+        <img
+          class="w-8 h-8 rounded-lg grayscale"
+          alt="Centerline Party footer logo"
+          src="logo.png"
+        />
+        <span class="font-bold">Centerline Party</span>
+      </div>
+
+      <p class="text-muted-gray text-sm">© <span id="year"></span> Centerline Party. All rights reserved.</p>
+
+      <div class="flex gap-6">
+        <a class="text-muted-gray hover:text-primary dark:hover:text-white transition-colors focus-ring" href="#">Privacy</a>
+        <a class="text-muted-gray hover:text-primary dark:hover:text-white transition-colors focus-ring" href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="fixed bottom-0 left-0 right-0 md:hidden bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-border-gray dark:border-white/10 z-50">
+    <div class="flex items-center justify-around py-2 px-4">
+      <a class="nav-link flex flex-col items-center gap-1 p-2 text-primary dark:text-white focus-ring" href="#home">
+        <span class="material-symbols-outlined">home</span>
+        <span class="text-[10px] font-bold uppercase tracking-widest">Home</span>
+      </a>
+      <a class="nav-link flex flex-col items-center gap-1 p-2 text-muted-gray focus-ring" href="#proposal">
+        <span class="material-symbols-outlined">description</span>
+        <span class="text-[10px] font-bold uppercase tracking-widest">Plan</span>
+      </a>
+      <a class="nav-link flex flex-col items-center gap-1 p-2 text-muted-gray focus-ring" href="#faq">
+        <span class="material-symbols-outlined">help</span>
+        <span class="text-[10px] font-bold uppercase tracking-widest">FAQ</span>
+      </a>
+      <a class="nav-link flex flex-col items-center gap-1 p-2 text-muted-gray focus-ring" href="#contact">
+        <span class="material-symbols-outlined">mail</span>
+        <span class="text-[10px] font-bold uppercase tracking-widest">Mail</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+    const mobileNavLinks = mobileMenuPanel.querySelectorAll('a');
+
+    mobileMenuButton.addEventListener('click', () => {
+      const isOpen = mobileMenuPanel.classList.toggle('open');
+      mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuPanel.classList.remove('open');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // FAQ toggle
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const button = item.querySelector('.faq-toggle');
+
+      button.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('open');
+          const otherButton = otherItem.querySelector('.faq-toggle');
+          otherButton.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Auto year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Basic contact feedback
+    const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formFeedback.textContent = 'Your message is noted here, but this form is not connected to email delivery yet.';
+      formFeedback.classList.remove('hidden');
+    });
+
+    // Active nav highlighting on scroll
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const setActiveLink = () => {
+      let currentId = 'home';
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 140 && rect.bottom >= 140) {
+          currentId = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentId}`) {
+          link.classList.add('active');
+          link.classList.remove('text-muted-gray');
+        } else {
+          link.classList.remove('active');
+          if (!link.closest('.fixed')) {
+            link.classList.add('text-muted-gray');
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', setActiveLink);
+  </script>
+</body>
+</html> 
